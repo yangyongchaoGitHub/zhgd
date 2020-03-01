@@ -28,6 +28,12 @@ public class WSRegistCtrl {
 	@Autowired
 	UserServiceInterface userService;
 	
+	@RequestMapping("/getUserPic")
+	@ResponseBody
+	public String getUserPic() {
+		faceSearchService.getUserPic("5L97R020281", "0eee01a404a90a4562ae41c5b90a2b58");
+		return "234";
+	}
 	
 	@RequestMapping("/getUserFaceStatus")
 	@ResponseBody

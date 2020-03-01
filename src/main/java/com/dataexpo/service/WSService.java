@@ -114,7 +114,7 @@ public class WSService implements WSServiceInterface, ApplicationContextAware {
 	 * @param payload 消息内容
 	 */
 	public String messageIn(WebSocketSession session, String payload) {
-		System.out.println("curr wait response: " + sends.size() + " " + payload);
+		System.out.println("curr wait response: " + sends.size() + " -- messageIn " + payload);
 		String method = "";
 		int id;
 		try {
@@ -137,6 +137,7 @@ public class WSService implements WSServiceInterface, ApplicationContextAware {
 			WebsocketPacketHandleEvent event = new WebsocketPacketHandleEvent(applicationContext);
 			event.setMethod(method);
 			event.setPayload(payload);
+			event.setSession(session);
 			applicationContext.publishEvent(event);
 			
 		} catch (JsonMappingException e) {
@@ -199,8 +200,5 @@ public class WSService implements WSServiceInterface, ApplicationContextAware {
 
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
-		
 	}
-
-	
 }

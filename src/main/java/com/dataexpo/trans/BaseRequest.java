@@ -2,13 +2,13 @@ package com.dataexpo.trans;
 
 public class BaseRequest extends BaseProtocal {
 	//获取人脸信息时使用
-	private long object;
+	private Long object;
 
-	public long getObject() {
+	public Long getObject() {
 		return object;
 	}
 
-	public void setObject(long object) {
+	public void setObject(Long object) {
 		this.object = object;
 	}
 	
